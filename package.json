@@ -1,0 +1,17 @@
+{
+  "name": "xlfconverter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Error: Please select a direction to convert\" && exit 1",
+    "start:xliff2csv": "clear && node xliff2csv.js",
+    "start:csv2xliff": "clear && node csv2xliff.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "papaparse": "^5.4.1",
+    "xliff": "^6.2.1"
+  }
+}
