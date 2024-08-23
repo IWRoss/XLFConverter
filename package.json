@@ -1,7 +1,7 @@
 {
   "name": "xlfconverter",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.1.0",
+  "main": "xliff2csv.js",
   "scripts": {
     "start": "echo \"Error: Please select a direction to convert\" && exit 1",
     "start:xliff2csv": "clear && node xliff2csv.js",

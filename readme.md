@@ -5,8 +5,14 @@ This script is used to convert .xlf files (1.2 only) into .csv files and vice ve
 ## How to use
 
 1. Clone the repository
-2. Place the files you would like to convert in the `input` folder
-3. Run the script with the following command:
+2. Install the dependencies with the following command:
+
+```bash
+npm install
+```
+
+3. Place the files you would like to convert in the `input` folder
+4. Run the script with the following command:
 
 ```bash
 npm run start:xliff2csv
@@ -18,7 +24,7 @@ or
 npm run start:csv2xliff
 ```
 
-4. The converted files will be placed in the `output` folder.
+5. The converted files will be placed in the `output` folder.
 
 ## CSV format
 
