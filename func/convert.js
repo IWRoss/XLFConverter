@@ -251,7 +251,7 @@ const convertCsvToJs = (csvPath) => {
 
     if (!parsedAttributes || !Object.keys(parsedAttributes).length) {
       setNestedProperty(jsonResult, `${file}.${unit}.source${newPath}`, source);
-      // setNestedProperty(jsonResult, `${file}.${unit}.target${newPath}`, target);
+      setNestedProperty(jsonResult, `${file}.${unit}.target${newPath}`, target);
       return;
     }
 
@@ -264,17 +264,20 @@ const convertCsvToJs = (csvPath) => {
     const newSource = { ...parsedAttributes, contents: source };
     const newTarget = { ...parsedAttributes, contents: target };
 
+    console.dir(newSource, { depth: null });
+    console.dir(newTarget, { depth: null });
+
     setNestedProperty(
       jsonResult,
       `${file}.${unit}.source${newPath}`,
       newSource
     );
 
-    // setNestedProperty(
-    //   jsonResult,
-    //   `${file}.${unit}.target${newPath}`,
-    //   newTarget
-    // );
+    setNestedProperty(
+      jsonResult,
+      `${file}.${unit}.target${newPath}`,
+      newTarget
+    );
   });
 
   return {

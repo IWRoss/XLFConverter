@@ -21,7 +21,12 @@ fs.readdir(csvFolder, (err, files) => {
 
     const jsData = convertCsvToJs(csvPath);
 
-    console.dir(jsData, { depth: null });
+    // Write to js file in js folder
+    const jsPath = `./js/${file.replace(".csv", ".json")}`;
+
+    fs.writeFileSync(jsPath, JSON.stringify(jsData, null, 2));
+
+    // console.dir(jsData, { depth: null });
 
     const csvData = await convertJsToXliff12(jsData);
 
