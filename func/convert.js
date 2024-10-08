@@ -52,7 +52,8 @@ function flattenGenericSpans(obj, path = "", level = 0) {
   // If we have a GenericSpan, create the flattened span with metadata
   const spanWithMeta = {
     ...obj.GenericSpan,
-    path: path || "root.GenericSpan.contents.GenericSpan",
+    // path: path || "root.GenericSpan.contents.GenericSpan",
+    path: path || "root.GenericSpan",
     level: level,
   };
 
@@ -66,7 +67,10 @@ function flattenGenericSpans(obj, path = "", level = 0) {
   if (Array.isArray(obj.GenericSpan.contents)) {
     // Recursively process each item in the contents array
     obj.GenericSpan.contents.forEach((content, index) => {
-      const newPath = `${path}.contents[${index}]`;
+      const newPath =
+        path !== ""
+          ? `${path}.contents[${index}]`
+          : `root.GenericSpan.contents[${index}]`;
       if (typeof content === "string") {
         // If content is a string, create a span object for it
         result.push({
@@ -83,9 +87,11 @@ function flattenGenericSpans(obj, path = "", level = 0) {
     });
   } else if (typeof obj.GenericSpan.contents === "object") {
     // If contents is an object, recurse into it
-    const newPath = path
-      ? `${path}.contents.GenericSpan`
-      : "root.GenericSpan.contents.GenericSpan.contents.GenericSpan";
+    const newPath =
+      path !== ""
+        ? `${path}.contents.GenericSpan`
+        : "root.GenericSpan.contents.GenericSpan.contents.GenericSpan";
+
     result = result.concat(
       flattenGenericSpans(obj.GenericSpan.contents, newPath, level + 1)
     );

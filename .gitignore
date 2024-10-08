@@ -1,0 +1,7 @@
+node_modules
+input/*
+js/*
+output/*
+
+# System files
+.DS_Store

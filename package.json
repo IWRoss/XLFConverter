@@ -4,8 +4,8 @@
   "main": "xliff2csv.js",
   "scripts": {
     "start": "echo \"Error: Please select a direction to convert\" && exit 1",
-    "start:xliff2csv": "clear && node xliff2csv.js",
-    "start:csv2xliff": "clear && node csv2xliff.js"
+    "start:xliff2csv": "node xliff2csv.js",
+    "start:csv2xliff": "node csv2xliff.js"
   },
   "author": "",
   "license": "ISC",
